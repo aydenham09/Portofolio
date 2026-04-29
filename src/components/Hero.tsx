@@ -62,8 +62,8 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-lg md:text-xl text-zinc-400 max-w-2xl mb-12"
         >
-          I build high-impact applications — from <strong className="text-zinc-200">AI-powered tools</strong> to <strong className="text-zinc-200">Web3 platforms</strong>. 
-          <br className="hidden md:block" /> 4x International Hackathon Winner. Informatics Undergraduate at Telkom University.
+          <strong className="text-indigo-400 block text-2xl md:text-3xl font-heading mb-4">Software Engineer specializing in AI Agent Workflows & Web3 Protocols</strong>
+          4x International Hackathon Winner. Informatics Undergraduate at Telkom University.
         </motion.p>
 
         <motion.div 

@@ -4,23 +4,10 @@
 
 @layer base {
   body {
-    @apply bg-background text-zinc-300 font-sans antialiased selection:bg-accent/30 selection:text-white;
+    @apply bg-paper text-ink/75 font-sans antialiased selection:bg-amber/40 selection:text-ink;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-bold text-white tracking-tight;
+    @apply font-heading font-bold text-ink tracking-tight;
   }
-}
-
-.noise-overlay {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-.gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-indigo-600;
 }

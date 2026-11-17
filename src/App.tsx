@@ -1,23 +1,21 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Systems from './components/Systems';
+import Process from './components/Process';
+import Wins from './components/Wins';
 import About from './components/About';
-import Education from './components/Education';
-import Achievements from './components/Achievements';
-import Experience from './components/Experience';
-import Projects from './components/Projects';
 import Contact from './components/Contact';
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-paper">
+    <div id="top" className="relative min-h-screen bg-paper">
       <Navbar />
       <main>
         <Hero />
+        <Systems />
+        <Process />
+        <Wins />
         <About />
-        <Education />
-        <Achievements />
-        <Experience />
-        <Projects />
       </main>
       <Contact />
     </div>

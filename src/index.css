@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-paper text-ink/75 font-sans antialiased selection:bg-amber/40 selection:text-ink;
+    @apply bg-paper text-ink/70 font-sans antialiased selection:bg-amber selection:text-white;
   }
 
   h1, h2, h3, h4, h5, h6 {

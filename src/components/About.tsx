@@ -1,93 +1,94 @@
 import { motion } from 'framer-motion';
-import { MapPin, Code, Cpu, Blocks } from 'lucide-react';
+import { MapPin, Code, Target, Workflow } from 'lucide-react';
 
 const About = () => {
   return (
     <section id="about" className="py-24 relative">
       <div className="container mx-auto px-6 max-w-6xl">
-        <div className="grid md:grid-cols-12 gap-12 items-center">
-          
+        <div className="flex items-center gap-4 mb-14">
+          <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase text-wiyata">01 · About</span>
+          <span className="h-px flex-1 bg-line" />
+        </div>
+
+        <div className="grid md:grid-cols-12 gap-12 items-start">
           {/* Photo Column */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="md:col-span-5 lg:col-span-4 max-w-sm mx-auto md:max-w-none w-full"
           >
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 aspect-[3/4] group">
-              <div className="absolute inset-0 bg-indigo-500/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10" />
-              <img 
-                src="/irham-foto.jpeg" 
-                alt="Irham Muhammad Hamzah" 
-                className="w-full h-full object-cover filter grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                onError={(e) => {
-                  e.currentTarget.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop';
-                }}
+            <div className="relative rounded-lg overflow-hidden border border-line aspect-[3/4] bg-white">
+              <img
+                src="/irham-foto.jpeg"
+                alt="Irham Muhammad Hamzah"
+                className="w-full h-full object-cover"
               />
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background to-transparent z-20">
-                <div className="flex items-center gap-2 text-sm text-zinc-300">
-                  <MapPin size={16} className="text-indigo-400" /> Bandung, Indonesia
+              <div className="absolute bottom-0 left-0 right-0 px-5 py-3.5 bg-paper/95 border-t border-line">
+                <div className="flex items-center gap-2 text-sm font-medium text-ink">
+                  <MapPin size={15} className="text-wiyata" /> Bandung, Indonesia
                 </div>
               </div>
             </div>
           </motion.div>
 
           {/* Text Column */}
-          <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6 }}
             className="md:col-span-7 lg:col-span-8"
           >
-            <div className="inline-block px-3 py-1 rounded-md bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-mono uppercase tracking-widest mb-6">
-              About Me
-            </div>
-            
-            <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">
-              Software Engineer & Innovator.
+            <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-ink leading-tight mb-6">
+              Products get built. <span className="text-wiyata">Then someone has to sell them.</span> I do both.
             </h2>
-            
-            <div className="space-y-4 text-zinc-400 text-lg">
+
+            <div className="space-y-5 text-ink/65 text-base md:text-lg leading-relaxed mb-12">
               <p>
-                I am an undergraduate <strong className="text-zinc-200">Informatics student at Telkom University</strong> driven by a passion for building cutting-edge technological solutions. My expertise spans across <strong className="text-zinc-200">Full-Stack Development, Web3/Blockchain, and Artificial Intelligence</strong>.
+                I am an Informatics undergraduate who moved from pure engineering into{' '}
+                <strong className="text-ink font-semibold">go-to-market</strong>: the discipline of turning a working
+                product into pipeline — defining the ICP, building qualified lead lists, wiring the CRM, and running
+                outbound that respects people's inboxes.
               </p>
               <p>
-                I have a strong track record of competing in international tech hackathons, successfully securing <strong className="text-indigo-400">4 major victories</strong>. This reflects my ability to execute complex ideas and transform them into functional products under extreme time constraints.
+                My proof is my own product. <strong className="text-ink font-semibold">SignalCut</strong> — my AI
+                pipeline that turns product photos into ready-to-post vertical ad videos — is both my software and my
+                GTM case study: I defined the DTC-brand ICP, built the prospect list, and set up the HubSpot pipeline
+                myself. It also powers an AI UGC offer aimed at foreign brands.
               </p>
               <p>
-                My dedication goes beyond writing clean code; I focus on creating exceptional user experiences and solving real-world problems through innovative technology.
+                The engineering background is real, and it is the unfair advantage: four international hackathon wins
+                (MetaMask, Flow/Forte, Arbitrum, Surreal World Assets) building AI and Web3 products under deadline.
+                Now I point that shipping speed at growth systems.
               </p>
             </div>
 
-            <div className="mt-10 pt-8 border-t border-white/10">
-              <h3 className="text-sm font-mono uppercase tracking-widest text-zinc-500 mb-6">Core Competencies</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-start gap-3">
-                  <Code className="text-indigo-400 mt-1" size={20} />
-                  <div>
-                    <h4 className="text-white font-medium mb-1 text-sm">Full-Stack Web</h4>
-                    <p className="text-xs text-zinc-500">React, Next.js, Node.js, TS</p>
-                  </div>
-                </div>
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-start gap-3">
-                  <Blocks className="text-emerald-400 mt-1" size={20} />
-                  <div>
-                    <h4 className="text-white font-medium mb-1 text-sm">Web3 & Smart Contracts</h4>
-                    <p className="text-xs text-zinc-500">Solidity, Rust, Cadence</p>
-                  </div>
-                </div>
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-start gap-3">
-                  <Cpu className="text-rose-400 mt-1" size={20} />
-                  <div>
-                    <h4 className="text-white font-medium mb-1 text-sm">Artificial Intelligence</h4>
-                    <p className="text-xs text-zinc-500">GenAI, AI Agents, LLMs</p>
-                  </div>
-                </div>
+            {/* Competency Cards */}
+            <div className="grid sm:grid-cols-3 gap-4">
+              <div className="p-5 rounded-lg bg-white border border-line">
+                <Target className="text-amber mb-3" size={22} />
+                <h3 className="font-heading font-bold text-ink mb-1.5">GTM Engineering</h3>
+                <p className="text-sm text-ink/55 leading-relaxed">
+                  ICP definition, lead-list building, CRM hygiene, and outbound systems — with HubSpot, Clay, and Apollo.
+                </p>
+              </div>
+              <div className="p-5 rounded-lg bg-white border border-line">
+                <Workflow className="text-wiyata mb-3" size={22} />
+                <h3 className="font-heading font-bold text-ink mb-1.5">Marketing Automation & AI</h3>
+                <p className="text-sm text-ink/55 leading-relaxed">
+                  AI agents and automation pipelines that compress research, content, and follow-up work.
+                </p>
+              </div>
+              <div className="p-5 rounded-lg bg-white border border-line">
+                <Code className="text-ink mb-3" size={22} />
+                <h3 className="font-heading font-bold text-ink mb-1.5">Product Building</h3>
+                <p className="text-sm text-ink/55 leading-relaxed">
+                  Full-stack shipping — Next.js, TypeScript, and AI tooling — proven by four international hackathon wins.
+                </p>
               </div>
             </div>
-
           </motion.div>
         </div>
       </div>

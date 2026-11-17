@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub } from 'react-icons/fa';
 import { projects } from '../data/portfolioData';
-import { 
-  Eye, Gamepad2, Stamp, Bot, SearchCode, Link as LinkIcon, 
-  Music, Wallet, Shield, Waves, MessageSquare, Network, 
-  Users, Gavel, Shirt, Code
+import {
+  Eye, Gamepad2, Stamp, Bot, SearchCode, Link as LinkIcon,
+  Music, Wallet, Shield, Waves, MessageSquare, Network,
+  Users, Gavel, Shirt, Code, ArrowUpRight
 } from 'lucide-react';
 
 const iconMap: Record<string, any> = {
@@ -31,7 +31,7 @@ const Projects = () => {
   const [filter, setFilter] = useState('all');
 
   const filters = [
-    { id: 'all', label: 'All Projects (16)' },
+    { id: 'all', label: 'All Projects (17)' },
     { id: 'web3', label: 'Web3 & Blockchain' },
     { id: 'ai', label: 'AI / GenAI' },
     { id: 'apps', label: 'Web & Apps' }
@@ -49,87 +49,108 @@ const Projects = () => {
     return 'apps';
   };
 
-  const filteredProjects = projects.filter(p => 
+  const filteredProjects = projects.filter(p =>
     filter === 'all' || getCategory(p.tags) === filter
   );
 
   return (
     <section id="projects" className="py-24 relative">
       <div className="container mx-auto px-6 max-w-6xl">
-        <div className="text-center mb-12">
-          <div className="inline-block px-3 py-1 rounded-md bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-mono uppercase tracking-widest mb-4">
-            Works & Explorations
-          </div>
-          <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-4">
-            GitHub Repositories
-          </h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto mb-8">
-            A complete collection of my open-source projects, ranging from hackathon prototypes to experimental new technologies.
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-3">
-            {filters.map(f => (
-              <button
-                key={f.id}
-                onClick={() => setFilter(f.id)}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
-                  filter === f.id 
-                    ? 'bg-indigo-600 text-white shadow-[0_0_15px_rgba(79,70,229,0.4)]' 
-                    : 'bg-white/5 text-zinc-400 border border-white/10 hover:bg-white/10 hover:text-white'
-                }`}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
+        <div className="flex items-center gap-4 mb-14">
+          <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase text-wiyata">05 · Works & Explorations</span>
+          <span className="h-px flex-1 bg-line" />
         </div>
 
-        <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-ink mb-4">
+          Selected Work
+        </h2>
+        <p className="text-ink/60 max-w-2xl mb-10 text-base md:text-lg leading-relaxed">
+          Live products first — the SaaS and the AI ad engine I am taking to market — followed by the open-source builds behind them.
+        </p>
+
+        <div className="flex flex-wrap gap-2.5 mb-12">
+          {filters.map(f => (
+            <button
+              key={f.id}
+              onClick={() => setFilter(f.id)}
+              className={`px-4 py-2 rounded-full text-sm font-medium border transition-colors ${
+                filter === f.id
+                  ? 'bg-ink text-paper border-ink'
+                  : 'bg-white text-ink/60 border-line hover:border-ink/40 hover:text-ink'
+              }`}
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
+
+        <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           <AnimatePresence>
             {filteredProjects.map((project) => {
               const IconComp = iconMap[project.icon] || Code;
-              
+
               return (
                 <motion.div
                   key={project.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.96 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
+                  exit={{ opacity: 0, scale: 0.96 }}
                   transition={{ duration: 0.3 }}
-                  className="flex flex-col bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-indigo-500/50 hover:shadow-[0_10px_30px_rgba(79,70,229,0.1)] transition-all duration-300 group"
+                  className="flex flex-col bg-white border border-line rounded-lg overflow-hidden hover:border-ink/35 transition-colors duration-300"
                 >
+                  {project.image && project.media === 'shot' && (
+                    <a href={project.link} target="_blank" rel="noreferrer" className="block border-b border-line">
+                      <img
+                        src={project.image}
+                        alt={`${project.name} — product screenshot`}
+                        className="w-full h-44 object-cover object-top"
+                        loading="lazy"
+                      />
+                    </a>
+                  )}
+                  {project.image && project.media === 'logo' && (
+                    <a href={project.link} target="_blank" rel="noreferrer" className="h-44 bg-ink flex flex-col items-center justify-center gap-3 border-b border-line">
+                      <img
+                        src={project.image}
+                        alt={`${project.name} logo`}
+                        className="h-20 w-20 object-contain"
+                        loading="lazy"
+                      />
+                      <span className="font-mono text-[11px] uppercase tracking-widest text-paper/60">satuwiyata.web.id — live</span>
+                    </a>
+                  )}
+
                   <div className="p-6 flex-1 flex flex-col">
                     <div className="flex justify-between items-start mb-4">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-500/5 border border-indigo-500/20 flex items-center justify-center text-indigo-400 group-hover:scale-110 transition-transform duration-300">
-                        <IconComp size={24} />
+                      <div className="w-11 h-11 rounded-md bg-paper border border-line flex items-center justify-center text-wiyata">
+                        <IconComp size={22} />
                       </div>
-                      <div className="flex gap-2">
-                        <a 
-                          href={project.link} 
-                          target="_blank" 
-                          rel="noreferrer"
-                          className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-zinc-400 hover:bg-white/10 hover:text-white transition-colors"
-                        >
-                          <FaGithub size={16} />
-                        </a>
-                      </div>
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`${project.name} on GitHub / live site`}
+                        className="w-8 h-8 rounded-full border border-line bg-paper flex items-center justify-center text-ink/50 hover:text-ink hover:border-ink/40 transition-colors"
+                      >
+                        {project.id === 'satuwiyata' ? <ArrowUpRight size={15} /> : <FaGithub size={15} />}
+                      </a>
                     </div>
-                    
-                    <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-xl font-bold text-white group-hover:text-indigo-300 transition-colors">{project.name}</h3>
+
+                    <div className="flex items-start justify-between gap-2 mb-2">
+                      <h3 className="text-lg font-bold text-ink leading-snug">{project.name}</h3>
                       {project.badge && (
-                        <span className="px-2 py-1 text-[10px] font-bold uppercase tracking-wider rounded bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center gap-1">
-                           {project.badge}
+                        <span className="shrink-0 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded bg-amber/15 text-[#8a5a12] border border-amber/50">
+                          {project.badge}
                         </span>
                       )}
                     </div>
-                    
-                    <p className="text-sm text-zinc-400 mb-6 flex-1">{project.description}</p>
-                    
-                    <div className="flex flex-wrap gap-2 mt-auto">
+
+                    <p className="text-sm text-ink/60 leading-relaxed mb-6 flex-1">{project.description}</p>
+
+                    <div className="flex flex-wrap gap-1.5 mt-auto">
                       {project.tags.map(tag => (
-                        <span key={tag} className="px-2.5 py-1 rounded-md bg-background text-zinc-500 text-[10px] font-mono border border-white/5">
+                        <span key={tag} className="px-2 py-0.5 rounded bg-paper text-ink/50 text-[10px] font-mono border border-line">
                           {tag}
                         </span>
                       ))}

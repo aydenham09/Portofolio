@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, MessageCircle, ExternalLink } from 'lucide-react';
+import { Mail, MessageCircle, ArrowUpRight } from 'lucide-react';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const Contact = () => {
@@ -8,44 +8,45 @@ const Contact = () => {
       name: "Email",
       handle: "irhamhamzahedu@gmail.com",
       link: "mailto:irhamhamzahedu@gmail.com",
-      icon: <Mail className="text-rose-400" size={24} />
+      icon: <Mail className="text-paper" size={22} />
     },
     {
       name: "WhatsApp",
       handle: "+62 851-5631-2044",
       link: "https://wa.me/6285156312044",
-      icon: <MessageCircle className="text-emerald-400" size={24} />
+      icon: <MessageCircle className="text-paper" size={22} />
     },
     {
       name: "LinkedIn",
       handle: "irhammhamzah",
       link: "https://www.linkedin.com/in/irhammhamzah/",
-      icon: <FaLinkedin className="text-blue-400" size={24} />
+      icon: <FaLinkedin className="text-paper" size={22} />
     },
     {
       name: "GitHub",
       handle: "IrrhammCode",
       link: "https://github.com/IrrhammCode",
-      icon: <FaGithub className="text-zinc-300" size={24} />
+      icon: <FaGithub className="text-paper" size={22} />
     }
   ];
 
   return (
-    <section id="contact" className="py-24 relative bg-background border-t border-white/5">
-      <div className="container mx-auto px-6 max-w-5xl">
-        <div className="text-center mb-16">
-          <div className="inline-block px-3 py-1 rounded-md bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-mono uppercase tracking-widest mb-4">
-            Get in Touch
-          </div>
-          <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-4">
-            Let's Build Together.
-          </h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto">
-            Open for career opportunities, project collaborations, and forming new hackathon teams.
-          </p>
+    <section id="contact" className="relative bg-ink text-paper mt-10">
+      <div className="container mx-auto px-6 max-w-5xl pt-24 pb-16">
+        <div className="flex items-center gap-4 mb-12">
+          <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase text-amber">06 · Get in Touch</span>
+          <span className="h-px flex-1 bg-white/15" />
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-24">
+        <h2 className="text-4xl md:text-6xl font-heading font-extrabold text-paper mb-5">
+          Let's Talk GTM<span className="text-amber">.</span>
+        </h2>
+        <p className="text-paper/65 max-w-2xl mb-14 text-base md:text-lg leading-relaxed">
+          Looking for a GTM/MarTech intern who can actually build the systems, not just talk about them? I'm open to
+          internships (remote, from Dec 2026), product collaborations, and go-to-market projects.
+        </p>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {contacts.map((contact, idx) => (
             <motion.div
               key={idx}
@@ -54,26 +55,26 @@ const Contact = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
             >
-              <a 
+              <a
                 href={contact.link}
                 target="_blank"
                 rel="noreferrer"
-                className="flex flex-col items-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-indigo-500/50 hover:bg-white/10 transition-all duration-300 group text-center h-full"
+                className="flex flex-col p-6 rounded-lg border border-white/15 hover:border-amber/60 hover:bg-white/5 transition-colors duration-300 h-full"
               >
-                <div className="w-12 h-12 rounded-full bg-background flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <div className="w-11 h-11 rounded-md bg-white/10 flex items-center justify-center mb-5">
                   {contact.icon}
                 </div>
-                <h3 className="text-white font-bold mb-1">{contact.name}</h3>
-                <span className="text-sm text-zinc-400 mb-4">{contact.handle}</span>
-                <ExternalLink size={16} className="text-zinc-600 mt-auto group-hover:text-indigo-400 transition-colors" />
+                <h3 className="text-paper font-bold mb-1">{contact.name}</h3>
+                <span className="text-sm text-paper/55 mb-5 break-all">{contact.handle}</span>
+                <ArrowUpRight size={16} className="text-paper/40 mt-auto" />
               </a>
             </motion.div>
           ))}
         </div>
       </div>
-      
-      <footer className="border-t border-white/10 py-8 text-center text-zinc-500 text-sm">
-        <p>&copy; 2026 Irham Muhammad Hamzah. Designed and Built with ❤️</p>
+
+      <footer className="border-t border-white/10 py-7 text-center text-paper/40 text-sm">
+        <p>&copy; 2026 Irham Muhammad Hamzah — Bandung, Indonesia</p>
       </footer>
     </section>
   );

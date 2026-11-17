@@ -1,4 +1,27 @@
-export const projects = [
+export interface Project {
+  id: string;
+  name: string;
+  description: string;
+  tags: string[];
+  link: string;
+  badge?: string;
+  icon: string;
+  image?: string;
+  media?: 'shot' | 'logo';
+}
+
+export const projects: Project[] = [
+  {
+    id: 'signalcut',
+    name: 'SignalCut',
+    description: 'AI pipeline that turns product photos into ready-to-post vertical ad videos (script → voice → render) for DTC brands — the engine behind my AI UGC offer for foreign sellers.',
+    tags: ['AI Video', 'MarTech', 'Automation'],
+    link: 'https://github.com/IrrhammCode/signalcut',
+    badge: 'Live Product',
+    icon: 'bot',
+    image: '/projects/signalcut.png',
+    media: 'shot'
+  },
   {
     id: 'watcherforte',
     name: 'WatcherForte',
@@ -127,10 +150,10 @@ export const projects = [
   },
   {
     id: 'portfolio',
-    name: 'Portofolio_Irham',
-    description: 'Source code for this interactive personal portfolio website hosted on GitHub Pages.',
-    tags: ['React', 'Tailwind', 'Framer Motion'],
-    link: 'https://github.com/IrrhammCode/Portofolio_Irham',
+    name: 'irhamhamzah.dev',
+    description: 'Source code for this portfolio website. Designed and built with React, Vite and Tailwind CSS, deployed on Vercel.',
+    tags: ['React', 'Vite', 'Tailwind'],
+    link: 'https://github.com/aydenham09/Portofolio',
     icon: 'code'
   }
 ];

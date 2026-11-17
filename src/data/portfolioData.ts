@@ -1,159 +1,94 @@
-export interface Project {
+export interface System {
   id: string;
-  name: string;
-  description: string;
-  tags: string[];
-  link: string;
-  badge?: string;
-  icon: string;
+  title: string;
+  problem: string;
+  built: string;
+  stack: string[];
+  status: string;
+  link?: { label: string; href: string };
   image?: string;
-  media?: 'shot' | 'logo';
 }
 
-export const projects: Project[] = [
+export const systems: System[] = [
   {
-    id: 'signalcut',
-    name: 'SignalCut',
-    description: 'AI pipeline that turns product photos into ready-to-post vertical ad videos (script → voice → render) for DTC brands — the engine behind my AI UGC offer for foreign sellers.',
-    tags: ['AI Video', 'MarTech', 'Automation'],
-    link: 'https://github.com/IrrhammCode/signalcut',
-    badge: 'Live Product',
-    icon: 'bot',
+    id: '01',
+    title: 'SignalCut — an ad-creative engine for DTC brands',
+    problem:
+      'DTC brands burn through ad creative fast. Every product needs fresh vertical video, and producing it by hand does not scale.',
+    built:
+      'An automated pipeline: a product photo goes in, and a finished vertical ad comes out — script, AI voice, music and render, no manual editing. I built it as the engine for an AI UGC service, so the product and its own marketing machine live in one system.',
+    stack: ['TypeScript', 'Remotion', 'Kokoro TTS', 'faster-whisper', 'ACE-Step'],
+    status: 'Live — open source',
+    link: { label: 'github.com/IrrhammCode/signalcut', href: 'https://github.com/IrrhammCode/signalcut' },
     image: '/projects/signalcut.png',
-    media: 'shot'
   },
   {
-    id: 'watcherforte',
-    name: 'WatcherForte',
-    description: 'Automated NFT/token monitoring platform on Flow blockchain, utilizing Forte\'s scheduled transactions and Find Labs API.',
-    tags: ['Flow', 'Cadence', 'Blockchain'],
-    link: 'https://github.com/IrrhammCode/WatcherForte',
-    badge: '3x Winner',
-    icon: 'eye'
+    id: '02',
+    title: 'Social listening for a city tourism office',
+    problem:
+      "Bandung's tourism office needed to hear what the public was actually saying — across thousands of posts, not anecdotes.",
+    built:
+      'A scraping and sentiment-analysis pipeline over tourism data, built during my internship at Dinas Kebudayaan dan Pariwisata Kota Bandung — alongside internal web systems, responsive public-service interfaces and automated record synchronisation.',
+    stack: ['Python', 'Web scraping', 'Sentiment analysis', 'Relational databases'],
+    status: 'Internship completed — highest grade: Sangat Baik',
   },
   {
-    id: 'stylusarena',
-    name: 'StylusArena',
-    description: 'Competitive on-chain gaming platform built on Arbitrum Stylus with high-performance Rust smart contracts.',
-    tags: ['Arbitrum Stylus', 'Rust', 'Web3 Gaming'],
-    link: 'https://github.com/IrrhammCode/StylusArena',
-    badge: 'Winner',
-    icon: 'gamepad'
+    id: '03',
+    title: 'The outbound lab — my GTM training stack',
+    problem:
+      'Most marketing work is manual glue: research in one tab, data in a spreadsheet, CRM in a third. GTM engineering replaces that with one wired system.',
+    built:
+      'The stack I train on daily: define the ICP, source accounts in Apollo, enrich them in Clay, run the pipeline in HubSpot, automate the glue with n8n, and measure everything with UTMs and GA4. This is the exact workflow GTM teams hire for — I am building reps on it now.',
+    stack: ['Clay', 'Apollo', 'HubSpot', 'n8n', 'GA4'],
+    status: 'In training — live accounts, daily reps',
   },
   {
-    id: 'storyseal',
-    name: 'StorySeal',
-    description: 'Decentralized AI-driven platform for Intellectual Property (IP) registration and digital asset preservation.',
-    tags: ['TypeScript', 'Smart Contracts', 'GenAI'],
-    link: 'https://github.com/IrrhammCode/StorySeal',
-    badge: 'Winner',
-    icon: 'stamp'
+    id: '04',
+    title: 'Agents that win hackathons',
+    problem:
+      'Four international hackathons, four agent and onchain builds — each one a lesson in shipping a working system under deadline, with a story judges can repeat.',
+    built:
+      'Agent-7715 & ChainLens (MetaMask Dev Cook-off), WatcherForte (Forte Hacks), StorySeal (Surreal World Assets) and a Grand Winner build at Arbitrum APAC. The pattern I took from all four: the demo is the product, and the narrative is the distribution.',
+    stack: ['AI agents', 'Onchain protocols', 'Rapid prototyping'],
+    status: '4× international winner',
+    link: { label: 'github.com/IrrhammCode', href: 'https://github.com/IrrhammCode' },
+  },
+];
+
+export const processSteps = [
+  {
+    id: '01',
+    title: 'Define the ICP',
+    text: 'Who exactly buys, what do they struggle with, and what signal says they are ready now? Everything downstream depends on this answer.',
   },
   {
-    id: 'agent7715',
-    name: 'Agent-7715',
-    description: 'Autonomous AI Agent leveraging MetaMask\'s Advanced Permissions system for secure wallet interactions.',
-    tags: ['AI Agent', 'MetaMask', 'TypeScript'],
-    link: 'https://github.com/IrrhammCode/Agent-7715',
-    badge: 'Winner',
-    icon: 'bot'
+    id: '02',
+    title: 'Build the list',
+    text: 'Source accounts and contacts, then enrich them in Clay and Apollo until every row is reachable, relevant and scored.',
   },
   {
-    id: 'chainlens',
-    name: 'ChainLens',
-    description: 'Multi-chain analytics platform combining Tatum API on-chain data with Gemini AI for hallucination-free portfolio summaries.',
-    tags: ['Gemini AI', 'Tatum API', 'JavaScript'],
-    link: 'https://github.com/IrrhammCode/chainlens',
-    badge: 'Winner',
-    icon: 'search-code'
+    id: '03',
+    title: 'Wire the system',
+    text: 'CRM pipeline, outbound sequences and n8n automation — the machine runs without manual copy-paste between tools.',
   },
   {
-    id: 'tatum-chainlens-ai',
-    name: 'tatum-chainlens-ai',
-    description: 'Backend integration of Tatum services and AI layer for the ChainLens analytics platform.',
-    tags: ['JavaScript', 'Backend', 'API'],
-    link: 'https://github.com/IrrhammCode/tatum-chainlens-ai',
-    icon: 'link'
+    id: '04',
+    title: 'Measure & iterate',
+    text: 'UTMs, GA4 and reply data feed the next round. What converts gets scaled; what does not pay back gets killed.',
   },
-  {
-    id: 'moodsync',
-    name: 'MoodSync Jukebox',
-    description: 'Intelligent application that curates and adjusts audio playback dynamically based on the user\'s current mood.',
-    tags: ['TypeScript', 'Audio', 'App'],
-    link: 'https://github.com/IrrhammCode/moodsync-jukebox',
-    icon: 'music'
-  },
-  {
-    id: 'bloom',
-    name: 'Bloom Family Budget',
-    description: 'Smart financial management application specifically designed to streamline home renovation planning and family budgeting.',
-    tags: ['TypeScript', 'Fintech', 'Mobile'],
-    link: 'https://github.com/IrrhammCode/Bloom-Family-Budget',
-    icon: 'wallet'
-  },
-  {
-    id: 'aegis',
-    name: 'AegisAgent',
-    description: 'Autonomous cybersecurity pipeline utilizing AI technology. Features an intelligent backend agent and a React frontend.',
-    tags: ['TypeScript', 'Cybersecurity', 'AI Pipeline'],
-    link: 'https://github.com/IrrhammCode/AegisAgent',
-    badge: 'Hackathon',
-    icon: 'shield'
-  },
-  {
-    id: 'flowtalos',
-    name: 'FlowTalos',
-    description: 'Smart contract implementations using Cadence programming language for the Flow blockchain ecosystem.',
-    tags: ['Cadence', 'Flow Blockchain', 'Smart Contracts'],
-    link: 'https://github.com/IrrhammCode/FlowTalos',
-    icon: 'waves'
-  },
-  {
-    id: 'dealwhisperer',
-    name: 'DealWhisperer',
-    description: 'Experimental application repository (currently in development phase).',
-    tags: ['Development'],
-    link: 'https://github.com/IrrhammCode/DealWhisperer',
-    icon: 'message-square'
-  },
-  {
-    id: 'autonome',
-    name: 'AUTONOME Yield Subnet',
-    description: 'Dedicated subnet network for optimization and automation of yield management in DeFi protocols.',
-    tags: ['DeFi', 'Subnet', 'Web3'],
-    link: 'https://github.com/IrrhammCode/AUTONOME-Yield-Subnet',
-    icon: 'network'
-  },
-  {
-    id: 'commit',
-    name: 'CommitTogether',
-    description: 'Development collaboration tool to help teams synchronize commits and streamline software development workflows.',
-    tags: ['TypeScript', 'DevTools'],
-    link: 'https://github.com/IrrhammCode/CommitTogether',
-    icon: 'users'
-  },
-  {
-    id: 'veritas',
-    name: 'VeritasDAO',
-    description: 'Decentralized Autonomous Organization (DAO) governance system with on-chain voting features.',
-    tags: ['JavaScript', 'DAO', 'Web3'],
-    link: 'https://github.com/IrrhammCode/VeritasDAO',
-    icon: 'gavel'
-  },
-  {
-    id: 'laundry',
-    name: 'Laundry-Online',
-    description: 'Online booking management system for laundry services featuring order status tracking.',
-    tags: ['JavaScript', 'Web App', 'System'],
-    link: 'https://github.com/IrrhammCode/Laundry-Online',
-    icon: 'shirt'
-  },
-  {
-    id: 'portfolio',
-    name: 'irhamhamzah.dev',
-    description: 'Source code for this portfolio website. Designed and built with React, Vite and Tailwind CSS, deployed on Vercel.',
-    tags: ['React', 'Vite', 'Tailwind'],
-    link: 'https://github.com/aydenham09/Portofolio',
-    icon: 'code'
-  }
+];
+
+export const wins = [
+  { event: 'Forte Hacks · Flow', result: 'Triple Track Winner', work: 'WatcherForte', year: '2025' },
+  { event: 'Arbitrum APAC', result: 'Grand Winner', work: 'Onchain agent build', year: '2025' },
+  { event: 'Surreal World Assets', result: 'GenAI IP Registration Winner', work: 'StorySeal', year: '2025' },
+  { event: 'MetaMask Dev Cook-off', result: 'Best Feedback', work: 'Agent-7715 & ChainLens', year: '2025' },
+  { event: 'Disbudpar Kota Bandung', result: 'Sangat Baik — highest internship grade', work: 'Developer Intern', year: '2026' },
+];
+
+export const timeline = [
+  { role: 'Creator', org: 'SignalCut', period: '2025 — Present', note: 'AI pipeline that turns product photos into vertical ad videos for DTC brands.' },
+  { role: 'Developer Intern', org: 'Dinas Kebudayaan dan Pariwisata Kota Bandung', period: 'Jun — Aug 2026', note: 'Internal web systems, scraping and sentiment analysis. Completed with the highest grade, Sangat Baik.' },
+  { role: 'Backend Developer', org: 'Morvis Dev · Freelance', period: '2025', note: 'REST APIs, database optimisation, authentication and webhooks for client projects.' },
+  { role: 'Advocate', org: 'HackQuest', period: '2025', note: 'Community advocacy for Web3 developer education.' },
 ];

@@ -1,95 +1,51 @@
-import { motion } from 'framer-motion';
-import { MapPin, Code, Target, Workflow } from 'lucide-react';
+import { timeline } from '../data/portfolioData';
 
 const About = () => {
   return (
-    <section id="about" className="py-24 relative">
+    <section id="about" className="py-16">
       <div className="container mx-auto px-6 max-w-6xl">
-        <div className="flex items-center gap-4 mb-14">
-          <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase text-wiyata">01 · About</span>
-          <span className="h-px flex-1 bg-line" />
+        <div className="flex items-baseline justify-between border-b-[3px] border-ink pb-4">
+          <h2 className="font-mono text-xs font-semibold tracking-[0.25em] uppercase text-ink">04 · About</h2>
+          <span className="font-mono text-[11px] tracking-[0.18em] text-ink/45 uppercase hidden sm:block">Telkom University · 2023 — 2027</span>
         </div>
 
-        <div className="grid md:grid-cols-12 gap-12 items-start">
-          {/* Photo Column */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="md:col-span-5 lg:col-span-4 max-w-sm mx-auto md:max-w-none w-full"
-          >
-            <div className="relative rounded-lg overflow-hidden border border-line aspect-[3/4] bg-white">
-              <img
-                src="/irham-foto.jpeg"
-                alt="Irham Muhammad Hamzah"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 px-5 py-3.5 bg-paper/95 border-t border-line">
-                <div className="flex items-center gap-2 text-sm font-medium text-ink">
-                  <MapPin size={15} className="text-wiyata" /> Bandung, Indonesia
+        <div className="mt-10 grid lg:grid-cols-2 gap-10">
+          <div>
+            <h3 className="text-3xl md:text-4xl leading-tight">The demo is the product. The narrative is the distribution.</h3>
+            <div className="mt-6 space-y-5 leading-relaxed text-ink/70 max-w-xl">
+              <p>
+                I came up building AI agents and onchain prototypes — four international hackathon wins taught me
+                how to ship a working system under deadline. Then I noticed the pattern: the builds that travelled
+                furthest were not always the most technical. They were the ones with a story people could repeat.
+              </p>
+              <p>
+                That is why I now work both sides of the launch. I build the product, then the go-to-market system
+                that gets it found, understood and bought — ICP, data, outbound, CRM, measurement. Long term I am
+                aiming at GTM and MarTech roles in Australia. Right now, I am looking for a remote GTM or MarTech
+                internship starting late December 2026.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <p className="font-mono text-[10px] tracking-[0.22em] text-ink/45 uppercase pb-3">Experience — index</p>
+            <div className="border-t border-ink">
+              {timeline.map((t) => (
+                <div key={t.role + t.org} className="border-b border-ink py-5 grid sm:grid-cols-[1fr_auto] gap-1 sm:gap-6">
+                  <div>
+                    <h4 className="text-[17px]">
+                      {t.role} — <span className="text-amber">{t.org}</span>
+                    </h4>
+                    <p className="mt-1.5 text-[14.5px] leading-relaxed text-ink/65">{t.note}</p>
+                  </div>
+                  <span className="font-mono text-xs text-ink/50 whitespace-nowrap">{t.period}</span>
                 </div>
-              </div>
+              ))}
             </div>
-          </motion.div>
-
-          {/* Text Column */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="md:col-span-7 lg:col-span-8"
-          >
-            <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-ink leading-tight mb-6">
-              Products get built. <span className="text-wiyata">Then someone has to sell them.</span> I do both.
-            </h2>
-
-            <div className="space-y-5 text-ink/65 text-base md:text-lg leading-relaxed mb-12">
-              <p>
-                I am an Informatics undergraduate who moved from pure engineering into{' '}
-                <strong className="text-ink font-semibold">go-to-market</strong>: the discipline of turning a working
-                product into pipeline — defining the ICP, building qualified lead lists, wiring the CRM, and running
-                outbound that respects people's inboxes.
-              </p>
-              <p>
-                My proof is my own product. <strong className="text-ink font-semibold">SignalCut</strong> — my AI
-                pipeline that turns product photos into ready-to-post vertical ad videos — is both my software and my
-                GTM case study: I defined the DTC-brand ICP, built the prospect list, and set up the HubSpot pipeline
-                myself. It also powers an AI UGC offer aimed at foreign brands.
-              </p>
-              <p>
-                The engineering background is real, and it is the unfair advantage: four international hackathon wins
-                (MetaMask, Flow/Forte, Arbitrum, Surreal World Assets) building AI and Web3 products under deadline.
-                Now I point that shipping speed at growth systems.
-              </p>
-            </div>
-
-            {/* Competency Cards */}
-            <div className="grid sm:grid-cols-3 gap-4">
-              <div className="p-5 rounded-lg bg-white border border-line">
-                <Target className="text-amber mb-3" size={22} />
-                <h3 className="font-heading font-bold text-ink mb-1.5">GTM Engineering</h3>
-                <p className="text-sm text-ink/55 leading-relaxed">
-                  ICP definition, lead-list building, CRM hygiene, and outbound systems — with HubSpot, Clay, and Apollo.
-                </p>
-              </div>
-              <div className="p-5 rounded-lg bg-white border border-line">
-                <Workflow className="text-wiyata mb-3" size={22} />
-                <h3 className="font-heading font-bold text-ink mb-1.5">Marketing Automation & AI</h3>
-                <p className="text-sm text-ink/55 leading-relaxed">
-                  AI agents and automation pipelines that compress research, content, and follow-up work.
-                </p>
-              </div>
-              <div className="p-5 rounded-lg bg-white border border-line">
-                <Code className="text-ink mb-3" size={22} />
-                <h3 className="font-heading font-bold text-ink mb-1.5">Product Building</h3>
-                <p className="text-sm text-ink/55 leading-relaxed">
-                  Full-stack shipping — Next.js, TypeScript, and AI tooling — proven by four international hackathon wins.
-                </p>
-              </div>
-            </div>
-          </motion.div>
+            <p className="mt-5 font-mono text-[11px] tracking-[0.14em] text-ink/50 uppercase">
+              Education — Informatics, Telkom University · Bandung, Indonesia
+            </p>
+          </div>
         </div>
       </div>
     </section>

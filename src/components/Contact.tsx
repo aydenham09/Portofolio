@@ -1,82 +1,46 @@
-import { motion } from 'framer-motion';
-import { Mail, MessageCircle, ArrowUpRight } from 'lucide-react';
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { ArrowUpRight } from 'lucide-react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Contact = () => {
-  const contacts = [
-    {
-      name: "Email",
-      handle: "irhamhamzahedu@gmail.com",
-      link: "mailto:irhamhamzahedu@gmail.com",
-      icon: <Mail className="text-paper" size={22} />
-    },
-    {
-      name: "WhatsApp",
-      handle: "+62 851-5631-2044",
-      link: "https://wa.me/6285156312044",
-      icon: <MessageCircle className="text-paper" size={22} />
-    },
-    {
-      name: "LinkedIn",
-      handle: "irhammhamzah",
-      link: "https://www.linkedin.com/in/irhammhamzah/",
-      icon: <FaLinkedin className="text-paper" size={22} />
-    },
-    {
-      name: "GitHub",
-      handle: "IrrhammCode",
-      link: "https://github.com/IrrhammCode",
-      icon: <FaGithub className="text-paper" size={22} />
-    }
-  ];
-
   return (
-    <section id="contact" className="relative bg-ink text-paper mt-10">
-      <div className="container mx-auto px-6 max-w-5xl pt-24 pb-16">
-        <div className="flex items-center gap-4 mb-12">
-          <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase text-amber">06 · Get in Touch</span>
-          <span className="h-px flex-1 bg-white/15" />
-        </div>
-
-        <h2 className="text-4xl md:text-6xl font-heading font-extrabold text-paper mb-5">
-          Let's Talk GTM<span className="text-amber">.</span>
+    <footer id="contact" className="pt-16 pb-10 border-t-[3px] border-ink mt-8">
+      <div className="container mx-auto px-6 max-w-6xl">
+        <p className="font-mono text-xs font-semibold tracking-[0.25em] uppercase text-ink">05 · Contact</p>
+        <h2 className="mt-6 text-4xl md:text-6xl leading-[1.04] font-extrabold max-w-3xl">
+          Want the details on any of this? <span className="text-amber">Ask me</span> how it works.
         </h2>
-        <p className="text-paper/65 max-w-2xl mb-14 text-base md:text-lg leading-relaxed">
-          Looking for a GTM/MarTech intern who can actually build the systems, not just talk about them? I'm open to
-          internships (remote, from Dec 2026), product collaborations, and go-to-market projects.
+        <p className="mt-6 text-lg text-ink/70 max-w-2xl leading-relaxed">
+          I am happy to walk through how any of these systems were built, what worked and what did not.
+          I am also open to GTM and MarTech internships from late December 2026 — remote, worldwide.
         </p>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {contacts.map((contact, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.1 }}
-            >
-              <a
-                href={contact.link}
-                target="_blank"
-                rel="noreferrer"
-                className="flex flex-col p-6 rounded-lg border border-white/15 hover:border-amber/60 hover:bg-white/5 transition-colors duration-300 h-full"
-              >
-                <div className="w-11 h-11 rounded-md bg-white/10 flex items-center justify-center mb-5">
-                  {contact.icon}
-                </div>
-                <h3 className="text-paper font-bold mb-1">{contact.name}</h3>
-                <span className="text-sm text-paper/55 mb-5 break-all">{contact.handle}</span>
-                <ArrowUpRight size={16} className="text-paper/40 mt-auto" />
-              </a>
-            </motion.div>
-          ))}
+        <div className="mt-10 grid sm:grid-cols-3 border border-ink">
+          <a href="mailto:irhamhamzahedu@gmail.com" className="p-5 border-ink max-sm:border-b sm:border-r hover:bg-ink hover:text-white transition-colors group">
+            <p className="font-mono text-[10px] tracking-[0.22em] uppercase opacity-50">Email</p>
+            <p className="mt-2 font-heading font-bold text-[15px] flex items-center gap-1.5 break-all">
+              irhamhamzahedu@gmail.com <ArrowUpRight className="w-4 h-4 shrink-0" />
+            </p>
+          </a>
+          <a href="https://www.linkedin.com/in/irhammhamzah" target="_blank" rel="noreferrer" className="p-5 border-ink max-sm:border-b sm:border-r hover:bg-ink hover:text-white transition-colors">
+            <p className="font-mono text-[10px] tracking-[0.22em] uppercase opacity-50">LinkedIn</p>
+            <p className="mt-2 font-heading font-bold text-[15px] flex items-center gap-2">
+              <FaLinkedin className="w-4 h-4" /> /in/irhammhamzah <ArrowUpRight className="w-4 h-4" />
+            </p>
+          </a>
+          <a href="https://github.com/IrrhammCode" target="_blank" rel="noreferrer" className="p-5 hover:bg-ink hover:text-white transition-colors">
+            <p className="font-mono text-[10px] tracking-[0.22em] uppercase opacity-50">GitHub</p>
+            <p className="mt-2 font-heading font-bold text-[15px] flex items-center gap-2">
+              <FaGithub className="w-4 h-4" /> /IrrhammCode <ArrowUpRight className="w-4 h-4" />
+            </p>
+          </a>
+        </div>
+
+        <div className="mt-14 pt-5 border-t border-ink flex flex-wrap justify-between gap-3 font-mono text-[11px] tracking-[0.14em] text-ink/45 uppercase">
+          <span>© 2026 Irham Muhammad Hamzah</span>
+          <span>Bandung, Indonesia — working worldwide</span>
         </div>
       </div>
-
-      <footer className="border-t border-white/10 py-7 text-center text-paper/40 text-sm">
-        <p>&copy; 2026 Irham Muhammad Hamzah — Bandung, Indonesia</p>
-      </footer>
-    </section>
+    </footer>
   );
 };
 

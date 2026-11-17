@@ -1,132 +1,55 @@
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { FaGithub } from 'react-icons/fa';
+import { ArrowUpRight } from 'lucide-react';
 
-const CountUp = ({ end }: { end: number }) => {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    let current = 0;
-    const step = Math.ceil(end / 40);
-    const timer = setInterval(() => {
-      current += step;
-      if (current >= end) {
-        current = end;
-        clearInterval(timer);
-      }
-      setCount(current);
-    }, 40);
-    return () => clearInterval(timer);
-  }, [end]);
-
-  return <span>{count}</span>;
-};
+const meta = [
+  { k: 'DISCIPLINE', v: 'GTM Engineering' },
+  { k: 'STACK', v: 'Clay · Apollo · HubSpot' },
+  { k: 'PROOF', v: '4× Intl. Hackathon Winner' },
+  { k: 'STATUS', v: 'Open — Dec 2026', accent: true },
+];
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-28 pb-20">
-      <div className="container mx-auto px-6 max-w-6xl relative z-10 w-full">
-        <div className="max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white border border-line mb-8"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber"></span>
-            </span>
-            <span className="font-mono text-[11px] sm:text-xs font-medium tracking-wider text-ink/70 uppercase">
-              Open to GTM / MarTech Internships — Dec 2026 / Jan 2027
-            </span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-5xl sm:text-7xl lg:text-8xl font-heading font-extrabold tracking-tight text-ink leading-[1.02] mb-6"
-          >
-            Irham<br />Muhammad<br />Hamzah<span className="text-amber">.</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-2xl sm:text-3xl font-heading font-semibold text-ink leading-snug mb-5 max-w-2xl"
-          >
-            I build AI products — and the{' '}
-            <span className="underline decoration-amber decoration-[3px] underline-offset-4">go-to-market systems</span>{' '}
-            that sell them.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-base sm:text-lg text-ink/60 leading-relaxed mb-10 max-w-2xl"
-          >
-            Informatics undergraduate at Telkom University. Builder of SignalCut, an AI ad-video engine for DTC
-            brands — and I run its go-to-market myself: ICP, lead lists, CRM, and outbound on a live
-            HubSpot · Clay · Apollo stack.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-wrap items-center gap-4"
-          >
-            <a
-              href="#projects"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-ink text-paper font-semibold rounded-md hover:bg-wiyata transition-colors"
-            >
-              See my work
-              <ArrowRight className="w-4 h-4" />
-            </a>
-            <a
-              href="https://github.com/IrrhammCode"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-transparent border border-ink/25 text-ink font-semibold rounded-md hover:border-ink hover:bg-white transition-colors"
-            >
-              <FaGithub className="w-5 h-5" />
-              GitHub
-            </a>
-          </motion.div>
+    <header className="pt-28 md:pt-36 pb-16">
+      <div className="container mx-auto px-6 max-w-6xl">
+        <div className="flex flex-wrap justify-between gap-2 font-mono text-[11px] tracking-[0.22em] text-ink/50 uppercase">
+          <span>Irham Hamzah — GTM &amp; MarTech</span>
+          <span>Bandung, ID / Remote worldwide</span>
         </div>
 
-        {/* Stats — ruled document row */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="grid grid-cols-3 gap-6 mt-20 pt-8 border-t border-line max-w-3xl"
-        >
-          <div>
-            <div className="text-4xl sm:text-5xl font-heading font-extrabold text-ink mb-1.5">
-              <CountUp end={4} />
+        <h1 className="mt-8 text-[44px] leading-[1.02] md:text-[76px] font-extrabold max-w-5xl">
+          I build the product.
+          <br />
+          Then the system
+          <br />
+          that <span className="text-amber">sells</span> it.
+        </h1>
+
+        <div className="mt-10 grid md:grid-cols-[1fr_auto] gap-6 items-end">
+          <p className="text-lg leading-relaxed max-w-xl text-ink/70">
+            Informatics student at Telkom University. I ship AI products — and I build the
+            go-to-market systems behind them: ICP research, enrichment pipelines, outbound,
+            CRM and measurement, wired into one machine.
+          </p>
+          <a
+            href="mailto:irhamhamzahedu@gmail.com"
+            className="inline-flex items-center gap-2 border-2 border-ink px-5 py-3 font-mono text-xs tracking-[0.14em] uppercase font-semibold text-ink hover:bg-ink hover:text-white transition-colors"
+          >
+            irhamhamzahedu@gmail.com <ArrowUpRight className="w-4 h-4" />
+          </a>
+        </div>
+
+        <dl className="mt-12 grid grid-cols-2 lg:grid-cols-4 border border-ink">
+          {meta.map((m, i) => (
+            <div key={m.k} className={`p-5 ${i > 0 ? 'border-l border-ink max-lg:[&:nth-child(3)]:border-l-0 max-lg:border-t max-lg:[&:nth-child(-n+2)]:border-t-0' : ''}`}>
+              <dt className="font-mono text-[10px] tracking-[0.22em] text-ink/45 flex items-center gap-2">
+                <span className="inline-block w-px h-3.5 bg-ink/40" /> {m.k}
+              </dt>
+              <dd className={`mt-2.5 font-heading font-bold text-[17px] ${m.accent ? 'text-amber' : 'text-ink'}`}>{m.v}</dd>
             </div>
-            <div className="font-mono text-[11px] sm:text-xs uppercase tracking-widest text-ink/50">Hackathon Wins</div>
-          </div>
-          <div>
-            <div className="text-4xl sm:text-5xl font-heading font-extrabold text-ink mb-1.5">
-              <CountUp end={1} />
-            </div>
-            <div className="font-mono text-[11px] sm:text-xs uppercase tracking-widest text-ink/50">Live Product</div>
-          </div>
-          <div>
-            <div className="text-4xl sm:text-5xl font-heading font-extrabold text-ink mb-1.5">
-              <CountUp end={3} />
-            </div>
-            <div className="font-mono text-[11px] sm:text-xs uppercase tracking-widest text-ink/50">GTM Tools Live</div>
-          </div>
-        </motion.div>
+          ))}
+        </dl>
       </div>
-    </section>
+    </header>
   );
 };
 

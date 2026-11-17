@@ -7,15 +7,20 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
-        heading: ['Space Grotesk', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
+        heading: ['"Plus Jakarta Sans"', 'sans-serif'],
       },
       colors: {
-        background: '#09090b',
-        surface: 'rgba(255, 255, 255, 0.04)',
-        border: 'rgba(255, 255, 255, 0.08)',
-        accent: '#818cf8',
+        paper: '#FAF8F3',
+        ink: '#17263B',
+        wiyata: '#274B9F',
+        amber: '#E9A13B',
+        surface: '#FFFFFF',
+        line: 'rgba(23, 38, 59, 0.14)',
+        background: '#FAF8F3',
+        border: 'rgba(23, 38, 59, 0.14)',
+        accent: '#274B9F',
       }
     },
   },
